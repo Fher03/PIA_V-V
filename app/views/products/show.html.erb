@@ -1,2 +1,12 @@
-<h1><%= @product.name %></h1>
+<% cache @product do %>
+    <h1><%= @product.name %></h1>
+    <%= @product.description %>
+    <%= image_tag @product.featured_image if @product.featured_image.attached? %>
+<% end %>
+
 <%= link_to "Back", products_path %>
+
+<% if authenticated? %>
+    <%= link_to "Edit", edit_product_path %>
+    <%= button_to "Delete", @product, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<% end %>

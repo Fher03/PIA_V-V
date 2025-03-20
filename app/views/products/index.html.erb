@@ -1,7 +1,7 @@
-<h1>Products</h1>
+<h1><%= t ".title" %></h1>
 
 <h2>
-  <%= link_to "Create New Product", products_new_path %>
+  <%= link_to "Create New Product", new_product_path if authenticated? %>
 </h2>
 
 <div id="products">
