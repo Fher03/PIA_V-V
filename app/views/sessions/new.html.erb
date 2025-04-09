@@ -1,11 +1,40 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<%= tag.div(flash[:alert], class: "text-red-600 bg-red-100 p-4 rounded-lg mb-6") if flash[:alert] %>
+<%= tag.div(flash[:notice], class: "text-green-600 bg-green-100 p-4 rounded-lg mb-6") if flash[:notice] %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
+<div class="bg-white container mx-auto rounded-lg shadow-md" style="
+    margin-top: 20px;
+">
+  <h1 class="text-3xl font-semibold text-indigo-700 mb-6 text-center">Sign In</h1>
 
-<%= link_to "Forgot password?", new_password_path %>
+  <form class="" action="/session" accept-charset="UTF-8" method="post" style="
+"><input type="hidden" name="authenticity_token" value="L17jkTTSWz_0uTyXxOXRHx4TCi3Z9SO53g3YvJ0_8N4CBSVAKVCmTCG__FtEFYAlT9ZJxlrE1x32DBg4fz-eKw" autocomplete="off">
+
+    <!-- Email -->
+    <div class="mb-2">
+      <label class="block text-lg font-medium text-gray-700" for="email_address">Email</label>
+      <input required="required" autofocus="autofocus" autocomplete="username" placeholder="Enter your email address" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" type="email" name="email_address" id="email_address">
+    </div>
+
+    <!-- Password -->
+    <div class="mb-2">
+      <label class="block text-lg font-medium text-gray-700" for="password">Password</label>
+      <input required="required" autocomplete="current-password" placeholder="Enter your password" maxlength="72" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" size="72" type="password" name="password" id="password">
+    </div>
+
+    <!-- Submit Button -->
+    <div class="mb-2">
+      <input type="submit" name="commit" value="Sign in" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 ease-in-out" data-disable-with="Sign in">
+    </div>
+
+</form>
+  <!-- Forgot Password Link -->
+  <div class="mt-2 text-center">
+    <a class="text-indigo-600 hover:text-indigo-800 font-medium" href="/passwords/new">Forgot password?</a>
+
+  </div>
+
+  <!-- Register Link -->
+  <div class="mt-2 text-center">
+    <a class="text-indigo-600 hover:text-indigo-800 font-medium" href="/users/new">¿No tienes cuenta? Regístrate</a> 
+  </div>
+</div>

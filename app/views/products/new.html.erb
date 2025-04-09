@@ -1,4 +1,8 @@
-<h1>New Product</h1>
-
 <%= render "form", product: @product %>
-<%= link_to "Cancel", products_path %>
+
+<!-- Contenedor para centrar el botón -->
+<div class="container mx-auto mt-8">
+  <div class="flex justify-center">
+    <%= link_to "Cancelar", products_path, class: "inline-block bg-gray-500 hover:bg-gray-600 text-black font-bold py-3 px-6 rounded-lg transition duration-200 ease-in-out shadow-md hover:shadow-lg" %>
+  </div>
+</div>

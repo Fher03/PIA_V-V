@@ -1,4 +1,12 @@
-<h1>Edit Product</h1>
+<div class="container mx-auto p-8 mt-8 max-w-lg bg-white shadow-xl rounded-lg ">
+  <!-- Título -->
+  <h1 class="text-3xl font-semibold text-indigo-700 mt-8 mb-6 text-center">Edit Product</h1>
 
-<%= render "form", product: @product %>
-<%= link_to "Cancel", @product %>
+  <!-- Formulario de edición -->
+  <%= render "form", product: @product %>
+
+  <!-- Botón de cancelación -->
+  <div class="mt-6 text-center">
+    <%= link_to "Cancel", @product, class: "text-indigo-600 hover:text-indigo-800 font-medium" %>
+  </div>
+</div>

@@ -26,11 +26,41 @@
     <div class="notice">
       <%= notice %>
     </div>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
-      <%= link_to "Login", new_session_path unless authenticated? %>
+    <nav class="bg-indigo-700 text-black shadow-md fixed top-0 z-20 w-full">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    
+        <!-- Título o nombre de la aplicación -->
+        <%= link_to root_path, class: "bg-indigo-500 hover:bg-indigo-600 text-black px-4 py-2 rounded-md transition" do %>
+          <i class="fas fa-home mr-2"></i> Store
+        <% end %>
+    
+        <!-- Botones de navegación -->
+        <div class="space-x-4">
+          
+    
+          <% if authenticated? %>
+            <%= button_to session_path, method: :delete, 
+                      class: "bg-red-500 hover:bg-red-600 text-black px-4 py-2 rounded-md transition cursor-pointer" do %>
+              <i class="fas fa-sign-out-alt mr-2"></i> Log out
+            <% end %>
+
+
+
+          <% else %>
+            <%= link_to new_session_path, class: "bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-md transition" do %>
+              <i class="fas fa-sign-in-alt mr-2"></i> Login
+            <% end %>
+            <%= link_to new_user_path, class: "bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-md transition" do %>
+              <i class="fas fa-sign-in-alt mr-2"></i> Register
+            <% end %>
+          <% end %>
+        </div>
+    
+      </div>
     </nav>
+  
+
+
 
     <main>
       <%= yield %>

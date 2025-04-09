@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
   rate_limit to: 10, within: 3.minutes, only: :create, with: -> { redirect_to new_session_url, alert: "Try again later." }
 
   def new
+    if current_user
+      redirect_to products_path # Redirige al usuario a la página de productos si ya está autenticado
+    end
   end
 
   def create
