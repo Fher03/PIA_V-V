@@ -4,17 +4,30 @@
 # belong in git's global ignore instead:
 # `$XDG_CONFIG_HOME/git/ignore` or `~/.config/git/ignore`
 
-# Ignore bundler config.
+# Ignorar archivos generados automáticamente
 /.bundle
+/vendor/bundle
+/public/assets
+/public/packs
+/node_modules
+/yarn-error.log
+/.yarn-integrity
+/.pnp.*
+/.pnp.*
 
-# Ignore all environment files.
-/.env*
+# Ignorar archivos de configuración específicos del entorno
+/config/master.key
+/config/credentials.yml.enc
+/.env
 
-# Ignore all logfiles and tempfiles.
+# Ignorar logs y tmp
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+# Ignore the SQLite database.
+/storage/*.qlite3
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
