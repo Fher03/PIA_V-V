@@ -26,8 +26,8 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore the SQLite database.
-/storage/*.qlite3
+#keep features
+!/features/.keep
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
