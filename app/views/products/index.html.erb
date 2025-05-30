@@ -1,12 +1,14 @@
-<h1><%= t ".title" %></h1>
+<h1 class="page-title"><%= t ".title" %></h1>
 
-<h2>
-  <%= link_to "Create New Product", new_product_path if authenticated? %>
-</h2>
+<% if authenticated? %>
+  <div class="actions">
+    <%= button_to "Create New Product", new_product_path, method: :get, class: "btn primary" %>
+  </div>
+<% end %>
 
-<div id="products">
+<div id="products" class="product-list">
   <% @products.each do |product| %>
-    <a href="/products/<%= product.id %>">
+    <a href="<%= product_path(product) %>" class="product-item">
       <%= product.name %>
     </a>
   <% end %>

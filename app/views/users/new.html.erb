@@ -1,16 +1,23 @@
-<h1>Registrar Nuevo Usuario</h1>
-<%= form_with(model: @user, local: true) do |form| %>
-  <div>
-    <%= form.label :email_address %>
-    <%= form.text_field :email_address %>
+<div class="register-container">
+  <h1 class="form-title">Registrar Nuevo Usuario</h1>
+
+  <%= form_with(model: @user, local: true, class: "register-form") do |form| %>
+    <div>
+      <%= form.label :email_address %>
+      <%= form.text_field :email_address, class: "form-input" %>
+    </div>
+
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password, class: "form-input" %>
+    </div>
+
+    <div>
+      <%= form.submit "Crear Usuario", class: "btn primary full-width" %>
+    </div>
+  <% end %>
+
+  <div class="login-redirect">
+    <%= link_to "Already have an account?", new_session_path, class: "link" %>
   </div>
-  
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  
-  <div>
-    <%= form.submit "Crear Usuario" %>
-  </div>
-<% end %>
+</div>
